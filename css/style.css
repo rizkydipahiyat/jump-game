@@ -1,20 +1,24 @@
 * {
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 .game {
 	width: 500px;
 	height: 200px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	margin: auto;
 }
-#character {
-	width: 20px;
+/* #character {
+	width: 50px;
 	height: 50px;
-	background-color: red;
 	position: relative;
 	top: 150px;
+} */
+.maskot {
+	position: absolute;
+	width: 50px;
+	height: 50px;
 }
 .animate {
 	animation: jump 0.3s linear;
@@ -35,13 +39,17 @@
 }
 
 #block {
-	background-color: blue;
-	width: 20px;
-	height: 20px;
+	width: 50px;
+	height: 50px;
 	position: relative;
-	top: 130px;
+	top: 115px;
 	left: 500px;
 	animation: block 1s infinite linear;
+}
+.banteng {
+	position: absolute;
+	width: 40px;
+	height: 40px;
 }
 @keyframes block {
 	0% {
@@ -53,4 +61,11 @@
 }
 p {
 	text-align: center;
+}
+
+@media screen and (min-width: 375px) {
+	p {
+		text-align: center;
+		margin-top: 5px;
+	}
 }

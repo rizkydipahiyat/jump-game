@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" onclick="jump()">
+<html lang="en" id="idJump">
 	<head>
 		<meta charset="UTF-8" />
 		<title>Jump Game</title>
@@ -7,10 +7,30 @@
 	</head>
 	<body>
 		<div class="game">
-			<div id="character"></div>
-			<div id="block"></div>
+			<!-- <div id="character"></div> -->
+			<div id="block">
+				<!-- <img src="asset/img/image.png" alt="banteng-gambar" class="banteng" /> -->
+			</div>
 		</div>
+		<hr style="margin: auto; width: 500px" />
 		<p>Score: <span id="scoreSpan"></span></p>
 	</body>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+	<script>
+		// NOTE - INCLUDE YOUR FIREBASE CONFIG HERE FOR ANYTHING TO WORK:
+		const firebaseConfig = {
+			apiKey: "AIzaSyDRFZ_HqufMS0gW7Wk8QwKD7zEcR4T-iuM",
+			authDomain: "notes-firebase-6d744.firebaseapp.com",
+			databaseURL: "https://notes-firebase-6d744.firebaseio.com",
+			projectId: "notes-firebase-6d744",
+			storageBucket: "notes-firebase-6d744.appspot.com",
+			messagingSenderId: "796616583472",
+			appId: "1:796616583472:web:ad10e86d877510a6d0c0f5",
+			measurementId: "G-7RYPRMZRNJ",
+		};
+		firebase.initializeApp(firebaseConfig);
+	</script>
 	<script src="js/script.js"></script>
 </html>
