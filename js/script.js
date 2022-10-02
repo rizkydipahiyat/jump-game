@@ -1,5 +1,6 @@
 // var character = document.getElementById("character");
 var block = document.getElementById("block");
+const characterElement = document.createElement("div");
 
 var params = new URLSearchParams(window.location.search);
 
@@ -57,7 +58,7 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 
 		allPlayersRef.on("child_added", (snapshot) => {
 			const addedPlayer = snapshot.val();
-			const characterElement = document.createElement("div");
+
 			characterElement.style.cssText =
 				"width: 50px; height: 50px;position: relative;top: 150px;";
 			characterElement.setAttribute("id", "character");
@@ -84,9 +85,7 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 		allPlayersRef.on("child_removed", (snapshot) => {
 			const removedKey = snapshot.val().id;
 			gameContainer.removeChild(playerElements[removedKey]);
-			if (playerElements > 1) {
-				delete playerElements[removedKey];
-			}
+			delete playerElements[removedKey];
 		});
 
 		// allCountersRef.on("value", (snapshot) => {
@@ -103,7 +102,7 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 
 		var checkDead = setInterval(function () {
 			let characterTop = parseInt(
-				window.getComputedStyle(character).getPropertyValue("top")
+				window.getComputedStyle(characterElement).getPropertyValue("top")
 			);
 			let blockLeft = parseInt(
 				window.getComputedStyle(block).getPropertyValue("left")
