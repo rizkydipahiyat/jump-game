@@ -73,10 +73,6 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 				<img src="asset/img/image.png" alt="banteng-gambar" class="banteng" />
 			`;
 
-			// if(addedPlayer.id === playerId) {
-			// 	character.classList.add("you")
-			// }
-
 			playerElements[addedPlayer.id] = characterElement;
 			// console.log(addedPlayer)
 			if (!addedPlayer.viewer) {
@@ -88,7 +84,9 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 		allPlayersRef.on("child_removed", (snapshot) => {
 			const removedKey = snapshot.val().id;
 			gameContainer.removeChild(playerElements[removedKey]);
-			delete playerElements[removedKey];
+			if (playerElements > 1) {
+				delete playerElements[removedKey];
+			}
 		});
 
 		// allCountersRef.on("value", (snapshot) => {
@@ -112,7 +110,7 @@ var viewer = (parseInt(params.get("viewer")) === 1 ? true : false) || false;
 			);
 			if (blockLeft < 50 && blockLeft > -20 && characterTop >= 130) {
 				block.style.animation = "none";
-				alert("Game Over. score: " + Math.floor(counters / 100));
+				// alert("Game Over. score: " + Math.floor(counters / 100));
 				counters = 0;
 				block.style.animation = "block 1s infinite linear";
 			} else {
